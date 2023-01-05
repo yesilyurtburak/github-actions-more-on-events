@@ -4,6 +4,15 @@ on:
     types:
       - opened
   workflow_dispatch:
+  push:
+    branches:
+      - main # main
+      - 'feat/**' # feat/new feat/new/button
+      - 'branch-*'  # branch-1 branch-new ...
+    path-ignore:
+      - '.github/workflows/*' 
+      # ignore changes in this path 
+      # (don't trigger the workflow on new push when the changes occur only in this path)
 jobs:
   deploy:
     runs-on: ubuntu-latest
